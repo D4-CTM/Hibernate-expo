@@ -1,4 +1,4 @@
-package com.exposition.Objects;
+package com.exposition.backend;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
