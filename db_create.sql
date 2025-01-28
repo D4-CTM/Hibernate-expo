@@ -12,6 +12,7 @@ GRANT CONNECT ON DATABASE gamestop TO manager;
 CREATE TABLE games (
     id SERIAL PRIMARY KEY,
     game_name VARCHAR(50) NOT NULL,
+    game_price FLOAT DEFAULT 0.1, 
     game_rating INTEGER DEFAULT 0,
     game_publisher VARCHAR(100)
 );
