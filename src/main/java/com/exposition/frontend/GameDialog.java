@@ -17,7 +17,7 @@ public class GameDialog {
         final JPanel gamePNL = new JPanel();
         gamePNL.setPreferredSize(new Dimension(600, 600));
         gamePNL.setBackground(background);
-        gamePNL.setLayout(null)
+        gamePNL.setLayout(null);
         
         final Dimension labelSize = new Dimension(150, 50);
         final Dimension paneSize = new Dimension(300, 50);
