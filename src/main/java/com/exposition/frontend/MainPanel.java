@@ -5,7 +5,6 @@ import java.util.List;
 import java.awt.Color;
 
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
@@ -55,23 +54,7 @@ public class MainPanel extends JPanel{
         scrollPane.setLocation(0, platePanel.getY() + platePanel.getHeight());
         scrollPane.setSize(panelSize.width, scrollPaneHeight);
         add(scrollPane);
-
-        final JButton previousBTN = new JButton();
-        previousBTN.setSize(headerSize.height, headerSize.height);
-        previousBTN.setLocation(0, panelSize.height - headerSize.height);
-        previousBTN.addActionListener(event -> {
-
-        });
-//        add(previousBTN);
-
-        final JButton nextBTN = new JButton();
-        nextBTN.setSize(headerSize.height, headerSize.height);
-        nextBTN.setLocation(panelSize.width - headerSize.height, panelSize.height - headerSize.height);
-        nextBTN.addActionListener(event -> {
-
-        });
-//        add(nextBTN);
-
+        
         showElements(sessionManager);
     }
 

@@ -7,7 +7,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
@@ -15,7 +14,6 @@ import javax.swing.border.Border;
 import com.exposition.backend.Game;
 
 public class GamePanel extends JPanel {
-    private final Border DELETE_BUTTON_BORDER = BorderFactory.createLineBorder(Color.decode("#512828"), 2);
     private final Border DEFAULT_BORDER = BorderFactory.createLineBorder(Color.BLACK, 2);
     private final Font SYSTEM_FONT = new Font("Roboto", Font.PLAIN, 30);
     private final Color UNFOCUSED = Color.DARK_GRAY;
@@ -112,25 +110,18 @@ public class GamePanel extends JPanel {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                setForeground(FOCUSED);
+                for (final var component : getComponents()) {
+                    component.setForeground(FOCUSED);
+                }
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                setForeground(UNFOCUSED);
+                for (final var component : getComponents()) {
+                    component.setForeground(UNFOCUSED);
+                }
             }
                         
-        });
-
-        final JButton deleteBTN = new JButton();
-        deleteBTN.setLocation(ratingLBL.getX() + ratingLBL.getWidth(), 0);
-        deleteBTN.setSize(size.height - 2, size.height);
-        deleteBTN.setBorder(DELETE_BUTTON_BORDER);
-        deleteBTN.setBackground(Color.RED);
-//        add(deleteBTN);
-
-        deleteBTN.addActionListener(event -> {
-            
         });
     }
 
