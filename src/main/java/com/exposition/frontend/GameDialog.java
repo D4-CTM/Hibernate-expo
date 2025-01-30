@@ -25,7 +25,7 @@ public class GameDialog {
     private final JDialog dialog;
     private Game game = null;
 
-    public GameDialog(SessionManager<Game> sessionManager) {
+    public GameDialog(MainPanel mainPanel, SessionManager<Game> sessionManager) {
         final JPanel gamePNL = new JPanel();
         gamePNL.setPreferredSize(new Dimension(470, 310));
         gamePNL.setBackground(background);
@@ -137,6 +137,8 @@ public class GameDialog {
             }
 
             if (executed) {
+                mainPanel.showElements(sessionManager);
+                
                 dialog.dispose();
             } else JOptionPane.showMessageDialog(null, "An error happened during execution.", "Query update: hibernate", JOptionPane.ERROR_MESSAGE);
             

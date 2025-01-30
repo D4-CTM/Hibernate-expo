@@ -17,7 +17,7 @@ public class Game {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "game_name", nullable = false, length = 50)
+    @Column(name = "game_name", nullable = false, columnDefinition = "varchar(50)")
     private String name;
 
     @Column(name = "game_price", columnDefinition = "DECIMAL(9, 2)")
