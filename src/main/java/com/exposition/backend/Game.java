@@ -1,5 +1,7 @@
 package com.exposition.backend;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,17 +13,17 @@ import jakarta.persistence.Table;
 @Table(name = "games")
 public class Game {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "game_name", nullable = false)
+    @Column(name = "game_name", nullable = false, length = 50)
     private String name;
 
-    @Column(name = "game_price")
-    private float price = 0.1f;
+    @Column(name = "game_price", columnDefinition = "NUMERIC(4, 2) CHECK(game_price >= 100)")
+    private BigDecimal price = new BigDecimal(100.00);
 
-    @Column(name = "game_rating")
+    @Column(name = "game_rating", columnDefinition = "SET DEFAULT 0")
     private int rating = 0;
 
     @Column(name = "game_publisher")
@@ -39,11 +41,11 @@ public class Game {
         name = _name;
     }
 
-    public float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(float _price) {
+    public void setPrice(BigDecimal _price) {
         price = _price;
     }
 

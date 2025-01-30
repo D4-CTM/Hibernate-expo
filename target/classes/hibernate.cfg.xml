@@ -5,14 +5,16 @@
     <session-factory>
         <!-- Database connection settings -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5431/gamestop</property>
-        <property name="hibernate.connection.username">manager</property>
-        <property name="hibernate.connection.password">manager</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5431/postgres</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">postgres</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
-        <!-- Hibernate settings -->
-        <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.format_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">true</property> <!-- Manda el mensaje a la consola -->
+        <property name="hibernate.format_sql">true</property> <!-- Lo formatea para ser mas legible -->
+        <property name="hibernate.hbm2ddl.auto">update</property> <!-- Se asegura que las modificaciones sean realizadas -->
+
+        <!-- Mapping classes -->
+        <mapping Class="com.exposition.backend.Game"/>
     </session-factory>
 </hibernate-configuration>

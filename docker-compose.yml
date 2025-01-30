@@ -9,4 +9,4 @@ services:
     ports:
       - 5431:5432
     environment: 
-      POSTGRES_PASSWORD: hibernate4884
+      POSTGRES_PASSWORD: postgres
