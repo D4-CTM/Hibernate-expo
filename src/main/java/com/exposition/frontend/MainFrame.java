@@ -25,14 +25,18 @@ public class MainFrame extends JFrame{
 
     public MainFrame(String FrameName) {
         SwingUtilities.invokeLater(() -> {
-            final Dimension frameSize = getUsableSpaceDimension();
-            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            try {
+                final Dimension frameSize = getUsableSpaceDimension();
+                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-            add(new MainPanel(frameSize));
-            
-            pack();
-            setVisible(true);
-            setResizable(false);
+                add(new MainPanel(frameSize));
+                
+                pack();
+                setVisible(true);
+                setResizable(false);
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
         });
     }
 

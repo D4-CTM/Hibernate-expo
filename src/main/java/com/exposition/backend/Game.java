@@ -20,10 +20,10 @@ public class Game {
     @Column(name = "game_name", nullable = false, length = 50)
     private String name;
 
-    @Column(name = "game_price", columnDefinition = "NUMERIC(4, 2) CHECK(game_price >= 100)")
+    @Column(name = "game_price", columnDefinition = "DECIMAL(9, 2)")
     private BigDecimal price = new BigDecimal(100.00);
 
-    @Column(name = "game_rating", columnDefinition = "SET DEFAULT 0")
+    @Column(name = "game_rating", columnDefinition = "INTEGER DEFAULT 0")
     private int rating = 0;
 
     @Column(name = "game_publisher")

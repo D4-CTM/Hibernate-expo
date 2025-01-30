@@ -15,6 +15,6 @@
         <property name="hibernate.hbm2ddl.auto">update</property> <!-- Se asegura que las modificaciones sean realizadas -->
 
         <!-- Mapping classes -->
-        <mapping Class="com.exposition.backend.Game"/>
+        <mapping class="com.exposition.backend.Game"/>
     </session-factory>
 </hibernate-configuration>

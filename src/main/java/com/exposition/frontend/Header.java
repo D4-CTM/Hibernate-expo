@@ -5,6 +5,9 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
+import com.exposition.backend.Game;
+import com.exposition.backend.SessionManager;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -18,7 +21,7 @@ public class Header extends JPanel{
     private final Color UNFOCUSED_SEARCH_BAR = Color.DARK_GRAY;
 
 
-    public Header(Dimension headerSize) {
+    public Header(Dimension headerSize, SessionManager<Game> sessionManager, GameDialog dialog) {
         setSize(headerSize);
         setOpaque(false);
         setLayout(null);
@@ -44,21 +47,24 @@ public class Header extends JPanel{
         searchLine.setBackground(UNFOCUSED_SEARCH_BAR);
         add(searchLine);
 
-        final JButton ingredientBTN = new JButton("Add game");
-        ingredientBTN.setSize((int) (headerSize.width * 0.25), headerHeight);
-        ingredientBTN.setLocation(headerSize.width - ingredientBTN.getWidth(), 0);       
-        ingredientBTN.setFont(SYSTEM_FONT);
-        add(ingredientBTN);
+        final JButton elementBTN = new JButton("Add game");
+        elementBTN.setSize((int) (headerSize.width * 0.25), headerHeight);
+        elementBTN.setLocation(headerSize.width - elementBTN.getWidth(), 0);       
+        elementBTN.setFont(SYSTEM_FONT);
+        add(elementBTN);
 
         searchBTN.addActionListener(event -> {
             String product = searchFLD.getText();
             if (product.equals(SEARCH_BAR_DEFAULT_TEXT) || product.isBlank()) return;
 
+            Game game = null;
             if (isNumericOnly(product)) {
-
+                game = sessionManager.getById(Game.class, Integer.parseInt(product));
             } else {
-
+                game = sessionManager.getByName(Game.class, product);
             }
+
+            dialog.update(game);
         });
 
         searchFLD.addFocusListener(new FocusListener() {
@@ -82,8 +88,8 @@ public class Header extends JPanel{
             
         });
 
-        ingredientBTN.addActionListener(event -> {
-
+        elementBTN.addActionListener(event -> {
+            dialog.insert();
         });
 
     }
